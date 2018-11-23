@@ -83,7 +83,8 @@
   */
 
 enum { MACRO_VERSION_INFO,
-       MACRO_ANY
+       MACRO_ANY,
+       MACRO_QUOTE
      };
 
 
@@ -146,10 +147,10 @@ enum { PRIMARY, NUMPAD, FUNCTION }; // layers
   *
   */
 
-#define PRIMARY_KEYMAP_QWERTY
+// #define PRIMARY_KEYMAP_QWERTY
 // #define PRIMARY_KEYMAP_COLEMAK
 // #define PRIMARY_KEYMAP_DVORAK
-// #define PRIMARY_KEYMAP_CUSTOM
+#define PRIMARY_KEYMAP_CUSTOM
 
 
 
@@ -220,11 +221,11 @@ KEYMAPS(
    Key_LeftControl, Key_Backspace, Key_LeftGui, Key_LeftShift,
    ShiftToLayer(FUNCTION),
 
-   M(MACRO_ANY),  Key_6, Key_7, Key_8,     Key_9,         Key_0,         LockLayer(NUMPAD),
+   M(MACRO_QUOTE),Key_6, Key_7, Key_8,     Key_9,         Key_0,         Key_Backslash,
    Key_Enter,     Key_Y, Key_U, Key_I,     Key_O,         Key_P,         Key_Equals,
                   Key_H, Key_J, Key_K,     Key_L,         Key_Semicolon, Key_Quote,
    Key_RightAlt,  Key_N, Key_M, Key_Comma, Key_Period,    Key_Slash,     Key_Minus,
-   Key_RightShift, Key_LeftAlt, Key_Spacebar, Key_RightControl,
+   Key_RightShift, Key_LeftGui, Key_Spacebar, Key_RightControl,
    ShiftToLayer(FUNCTION)),
 
 #else
@@ -301,6 +302,25 @@ static void anyKeyMacro(uint8_t keyState) {
     kaleidoscope::hid::pressKey(lastKey, toggledOn);
 }
 
+/** quoteMacro is used to provide the functionality of the 'Any' key.
+ *
+ * When the 'any key' macro is toggled on, a slack=like quote is generated
+ * by pasting what's in the clipboard between triple backticks.
+ *
+ */
+
+const macro_t *quoteMacro(uint8_t keyState) {
+  if (keyToggledOn(keyState)) {
+    return MACRO(
+      I(25),
+      T(Backtick), T(Backtick), T(Backtick), D(LeftShift), T(Enter), U(LeftShift),
+      D(LeftGui), T(V), U(LeftGui),
+      T(Backtick), T(Backtick), T(Backtick), D(LeftShift), T(Enter), U(LeftShift)
+    );
+  }
+  return MACRO_NONE;
+}
+
 
 /** macroAction dispatches keymap events that are tied to a macro
     to that macro. It takes two uint8_t parameters.
@@ -324,6 +344,9 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
   case MACRO_ANY:
     anyKeyMacro(keyState);
     break;
+
+  case MACRO_QUOTE:
+    return quoteMacro(keyState);
   }
   return MACRO_NONE;
 }
