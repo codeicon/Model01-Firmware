@@ -314,7 +314,7 @@ const macro_t *quoteMacro(uint8_t keyState) {
     return MACRO(
       I(25),
       T(Backtick), T(Backtick), T(Backtick), D(LeftShift), T(Enter), U(LeftShift),
-      D(LeftGui), T(V), U(LeftGui),
+      D(LeftGui), T(V), U(LeftGui), D(LeftShift), T(Enter), U(LeftShift),
       T(Backtick), T(Backtick), T(Backtick), D(LeftShift), T(Enter), U(LeftShift)
     );
   }
