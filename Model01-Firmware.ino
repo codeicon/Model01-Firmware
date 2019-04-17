@@ -54,6 +54,9 @@
 // Support for an LED mode that lights up the keys as you press them
 #include "Kaleidoscope-LED-Stalker.h"
 
+// Support for an LED mode that creates fireworks as keys are pressed
+#include "Kaleidoscope-LED-Fireworks.h"
+
 // Support for an LED mode that prints the keys you press in letters 4px high
 #include "Kaleidoscope-LED-AlphaSquare.h"
 
@@ -281,7 +284,7 @@ KEYMAPS(
    Consumer_PlaySlashPause,    Consumer_ScanNextTrack, Key_LeftCurlyBracket,     Key_RightCurlyBracket,    Key_LeftBracket, Key_RightBracket, Key_F12,
                                Key_LeftArrow,          Key_DownArrow,            Key_UpArrow,              Key_RightArrow,  ___,              ___,
    Key_PcApplication,          Consumer_Mute,          Consumer_VolumeDecrement, Consumer_VolumeIncrement, ___,             Key_Backslash,    Key_Pipe,
-   ___, ___, Key_Enter, ___,
+   ___, ___, ___, ___,
    ___)
 ) // KEYMAPS(
 
@@ -482,7 +485,11 @@ KALEIDOSCOPE_INIT_PLUGINS(
   LEDRainbowWaveEffect,
 
   // The stalker effect lights up the keys you've pressed recently
-  StalkerEffect,
+  // EAS20181210: Disabling this one in favor of the fireworks effect.
+  //StalkerEffect,
+
+  // The fireworks effect creates a fireworks effect as keys are pressed
+  FireworksEffect,
 
   // The rainbow effect changes the color of all of the keyboard's keys at the same time
   // running through all the colors of the rainbow.
