@@ -174,7 +174,7 @@ KEYMAPS(
    Key_LeftControl, Key_Backspace, Key_LeftGui, Key_LeftShift,
    ShiftToLayer(FUNCTION),
 
-   M(MACRO_ANY),  Key_6, Key_7, Key_8,     Key_9,         Key_0,         LockLayer(NUMPAD),
+   ___,           Key_6, Key_7, Key_8,     Key_9,         Key_0,         LockLayer(NUMPAD),
    Key_Enter,     Key_Y, Key_U, Key_I,     Key_O,         Key_P,         Key_Equals,
                   Key_H, Key_J, Key_K,     Key_L,         Key_Semicolon, Key_Quote,
    Key_RightAlt,  Key_N, Key_M, Key_Comma, Key_Period,    Key_Slash,     Key_Minus,
@@ -191,7 +191,7 @@ KEYMAPS(
    Key_LeftControl, Key_Backspace, Key_LeftGui, Key_LeftShift,
    ShiftToLayer(FUNCTION),
 
-   M(MACRO_ANY),   Key_6, Key_7, Key_8, Key_9, Key_0, LockLayer(NUMPAD),
+   ___,            Key_6, Key_7, Key_8, Key_9, Key_0, LockLayer(NUMPAD),
    Key_Enter,      Key_F, Key_G, Key_C, Key_R, Key_L, Key_Slash,
                    Key_D, Key_H, Key_T, Key_N, Key_S, Key_Minus,
    Key_RightAlt,   Key_B, Key_M, Key_W, Key_V, Key_Z, Key_Equals,
@@ -208,7 +208,7 @@ KEYMAPS(
    Key_LeftControl, Key_Backspace, Key_LeftGui, Key_LeftShift,
    ShiftToLayer(FUNCTION),
 
-   M(MACRO_ANY),  Key_6, Key_7, Key_8,     Key_9,         Key_0,         LockLayer(NUMPAD),
+   ___,           Key_6, Key_7, Key_8,     Key_9,         Key_0,         LockLayer(NUMPAD),
    Key_Enter,     Key_J, Key_L, Key_U,     Key_Y,         Key_Semicolon, Key_Equals,
                   Key_H, Key_N, Key_E,     Key_I,         Key_O,         Key_Quote,
    Key_RightAlt,  Key_K, Key_M, Key_Comma, Key_Period,    Key_Slash,     Key_Minus,
@@ -225,7 +225,7 @@ KEYMAPS(
    Key_LeftControl, Key_Backspace, Key_LeftGui, ShiftToLayer(FUNCTION),
    ShiftToLayer(FUNCTION),
 
-   M(MACRO_QUOTE), Key_6, Key_7, Key_8,     Key_9,         Key_0,         Key_Minus,
+   ___,            Key_6, Key_7, Key_8,     Key_9,         Key_0,         Key_Minus,
    Key_Enter,      Key_Y, Key_U, Key_I,     Key_O,         Key_P,         Key_Equals,
                    Key_H, Key_J, Key_K,     Key_L,         Key_Semicolon, Key_Quote,
    Key_RightAlt,   Key_N, Key_M, Key_Comma, Key_Period,    Key_Slash,     Key_RightShift,
@@ -242,7 +242,7 @@ KEYMAPS(
    Key_LeftControl, Key_Backspace, Key_LeftAlt, ShiftToLayer(FUNCTION),
    ShiftToLayer(FUNCTION),
 
-   M(MACRO_QUOTE), Key_6, Key_7, Key_8,     Key_9,         Key_0,         Key_Minus,
+   ___,            Key_6, Key_7, Key_8,     Key_9,         Key_0,         Key_Minus,
    Key_Enter,      Key_Y, Key_U, Key_I,     Key_O,         Key_P,         Key_Equals,
                    Key_H, Key_J, Key_K,     Key_L,         Key_Semicolon, Key_Quote,
    Key_RightAlt,   Key_N, Key_M, Key_Comma, Key_Period,    Key_Slash,     Key_RightShift,
@@ -280,7 +280,7 @@ KEYMAPS(
    ___, Key_Delete, ___, ___,
    ___,
 
-   Consumer_ScanPreviousTrack, Key_F6,                 Key_F7,                   Key_F8,                   Key_F9,          Key_F10,          Key_F11,
+   M(MACRO_QUOTE), Key_F6,                 Key_F7,                   Key_F8,                   Key_F9,          Key_F10,          Key_F11,
    Consumer_PlaySlashPause,    Consumer_ScanNextTrack, Key_LeftCurlyBracket,     Key_RightCurlyBracket,    Key_LeftBracket, Key_RightBracket, Key_F12,
                                Key_LeftArrow,          Key_DownArrow,            Key_UpArrow,              Key_RightArrow,  ___,              ___,
    Key_PcApplication,          Consumer_Mute,          Consumer_VolumeDecrement, Consumer_VolumeIncrement, ___,             Key_Backslash,    Key_Pipe,
