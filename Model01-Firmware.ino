@@ -55,7 +55,7 @@
 #include "Kaleidoscope-LED-Stalker.h"
 
 // Support for an LED mode that creates fireworks as keys are pressed
-#include "Kaleidoscope-LED-Fireworks.h"
+//#include "Kaleidoscope-LED-Fireworks.h"
 
 // Support for an LED mode that prints the keys you press in letters 4px high
 #include "Kaleidoscope-LED-AlphaSquare.h"
@@ -273,11 +273,11 @@ KEYMAPS(
    ___),
 
   [FUNCTION] =  KEYMAP_STACKED
-  (___,      Key_F1,           Key_F2,      Key_F3,     Key_F4,        Key_F5,           Key_CapsLock,
-   Key_Tab,  ___,              Key_mouseUp, ___,        Key_mouseBtnR, Key_mouseWarpEnd, Key_mouseWarpNE,
-   Key_Home, Key_mouseL,       Key_mouseDn, Key_mouseR, Key_mouseBtnL, Key_mouseWarpNW,
-   Key_End,  Key_PrintScreen,  Key_Insert,  ___,        Key_mouseBtnM, Key_mouseWarpSW,  Key_mouseWarpSE,
-   ___, Key_Delete, ___, ___,
+  (___,      Key_F1,           Key_F2,        Key_F3,      Key_F4,        Key_F5,           Key_CapsLock,
+   Key_Tab,  ___,              ___,           Key_mouseUp, Key_mouseBtnR, Key_mouseWarpEnd, Key_mouseWarpNE,
+   Key_Home, ___,              Key_mouseL,    Key_mouseDn, Key_mouseR,    Key_mouseWarpNW,
+   Key_End,  Key_PrintScreen,  Key_Insert,    ___,         Key_mouseBtnM, Key_mouseWarpSW,  Key_mouseWarpSE,
+   Key_mouseBtnL, Key_Delete, ___, ___,
    ___,
 
    M(MACRO_QUOTE), Key_F6,                 Key_F7,                   Key_F8,                   Key_F9,          Key_F10,          Key_F11,
@@ -485,11 +485,10 @@ KALEIDOSCOPE_INIT_PLUGINS(
   LEDRainbowWaveEffect,
 
   // The stalker effect lights up the keys you've pressed recently
-  // EAS20181210: Disabling this one in favor of the fireworks effect.
-  //StalkerEffect,
+  StalkerEffect,
 
   // The fireworks effect creates a fireworks effect as keys are pressed
-  FireworksEffect,
+  //FireworksEffect,
 
   // The rainbow effect changes the color of all of the keyboard's keys at the same time
   // running through all the colors of the rainbow.
@@ -561,6 +560,11 @@ void setup() {
   // called 'BlazingTrail'. For details on other options,
   // see https://github.com/keyboardio/Kaleidoscope-LED-Stalker
   StalkerEffect.variant = STALKER(BlazingTrail);
+
+  // EAS20190917: Personal mouse keys config,
+  // see https://github.com/keyboardio/Kaleidoscope-MouseKeys
+  MouseKeys.accelDelay = 3;     // default = 50ms
+  MouseKeys.setSpeedLimit(200); // default = 127px
 
   // We want to make sure that the firmware starts with LED effects off
   // This avoids over-taxing devices that don't have a lot of power to share
